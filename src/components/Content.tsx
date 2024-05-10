@@ -656,6 +656,7 @@ export function Content(props: { title: string }) {
             <ul>
               <li className="my-6 flex items-center space-x-2">
                 <a href="#" className="relative block">
+                  
                   <img
                     alt="Maurice Lokumba"
                     src="/images/2.jpg"

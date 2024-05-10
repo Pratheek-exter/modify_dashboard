@@ -6,6 +6,8 @@ import { ProjectIcon } from './icons/ProjectIcon';
 import { SettingsIcon } from './icons/SettingsIcon';
 import { CalendarIcon } from './icons/CalendarIcon';
 import { TimeManageIcon } from './icons/TimeManageIcon';
+import { title } from 'process';
+import { link } from 'fs';
 
 export const data = [
   {
@@ -14,9 +16,15 @@ export const data = [
     link: '/',
   },
   {
-    title: 'Projects',
+    title: 'BSS',
     icon: <ProjectIcon />,
-    link: '/admin/projects',
+    link: '/admin/BSS',
+    subItems: [
+      {
+        title: "Rider",
+        link: "/admin/BSS/rider"
+      },
+    ]
   },
   {
     title: 'My tasks',
@@ -24,14 +32,9 @@ export const data = [
     link: '/admin/tasks',
   },
   {
-    title: 'Calendar',
+    title: 'Files',
     icon: <CalendarIcon />,
     link: '/admin/calendar',
-  },
-  {
-    title: 'Time manage',
-    icon: <TimeManageIcon />,
-    link: '/admin/time-manage',
   },
   {
     title: 'Reports',
