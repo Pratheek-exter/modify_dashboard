@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
+
 
 const formPage = () => {
   return (
-    <div>formPage</div>
-  )
-}
+    <div>
+      rider form
+    </div>
+  );
+};
 
-export default formPage
+export default formPage;

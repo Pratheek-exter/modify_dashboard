@@ -1,30 +1,25 @@
 import React from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import {  ShopOutlined, PieChartOutlined, UserAddOutlined  } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Menu } from 'antd';
+import { MenuItemType } from 'antd/es/menu/hooks/useItems';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
 const items: MenuItem[] = [
-  {
-    key: 'grp',
-    label: 'exter Stats',
-    type: 'group',
-    children: [
-      { key: '13', label: 'Dashboard' },
-    ],
-  },
+  { key: '1',
+   icon: <PieChartOutlined />,
+    label: 'Option 1' },
   {
     key: 'sub1',
     label: 'BSS',
-    icon: <MailOutlined />,
+    icon: <ShopOutlined />,
     children: [
       {
         key: 'g1',
-        label: 'Registeration',
         type: 'group',
         children: [
-          { key: '1', label: 'Rider-Registeration' },
+          { key: '1', label: 'Rider-Registeration', icon: <UserAddOutlined />, link: '/BSS/rider'} as MenuItemType,
         ],
       }
         
