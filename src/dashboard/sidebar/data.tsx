@@ -1,54 +1,54 @@
-import { DocIcon } from './icons/DocIcon';
-import { HomeIcon } from './icons/HomeIcon';
-import { TaskIcon } from './icons/TaskIcon';
-import { ReportIcon } from './icons/ReportIcon';
-import { ProjectIcon } from './icons/ProjectIcon';
-import { SettingsIcon } from './icons/SettingsIcon';
-import { CalendarIcon } from './icons/CalendarIcon';
-import { TimeManageIcon } from './icons/TimeManageIcon';
-import { title } from 'process';
-import { link } from 'fs';
+import React from 'react';
+import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
 
-export const data = [
+type MenuItem = Required<MenuProps>['items'][number];
+
+const items: MenuItem[] = [
   {
-    title: 'Dashboard',
-    icon: <HomeIcon />,
-    link: '/',
+    key: 'grp',
+    label: 'exter Stats',
+    type: 'group',
+    children: [
+      { key: '13', label: 'Dashboard' },
+    ],
   },
   {
-    title: 'BSS',
-    icon: <ProjectIcon />,
-    link: '/admin/BSS',
-    subItems: [
+    key: 'sub1',
+    label: 'BSS',
+    icon: <MailOutlined />,
+    children: [
       {
-        title: "Rider",
-        link: "/admin/BSS/rider"
-      },
+        key: 'g1',
+        label: 'Registeration',
+        type: 'group',
+        children: [
+          { key: '1', label: 'Rider-Registeration' },
+        ],
+      }
+        
     ]
+    
   },
-  {
-    title: 'My tasks',
-    icon: <TaskIcon />,
-    link: '/admin/tasks',
-  },
-  {
-    title: 'Files',
-    icon: <CalendarIcon />,
-    link: '/admin/calendar',
-  },
-  {
-    title: 'Reports',
-    icon: <ReportIcon />,
-    link: '/admin/reports',
-  },
-  {
-    title: 'Settings',
-    icon: <SettingsIcon />,
-    link: '/admin/settings',
-  },
-  {
-    title: 'Documentation',
-    icon: <DocIcon />,
-    link: '/admin/documentation',
-  },
+
 ];
+  
+const formData: React.FC = () => {
+  const onClick: MenuProps['onClick'] = (e) => {
+    console.log('click ', e);
+  };
+
+  return (
+    <Menu
+      onClick={onClick}
+      style={{ width: 256 }}
+      defaultSelectedKeys={['1']}
+      defaultOpenKeys={['sub1']}
+      mode="inline"
+      items={items}
+    />
+  );
+};
+
+export default formData;

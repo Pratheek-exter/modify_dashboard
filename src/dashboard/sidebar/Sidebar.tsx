@@ -1,5 +1,5 @@
 import css from '../style.module.css';
-import { SidebarItems } from './SidebarItems';
+import  SidebarItems  from './SidebarItems';
 import { SidebarHeader } from './SidebarHeader';
 import { useDashboardContext } from '../Provider';
 
@@ -29,6 +29,7 @@ export function Sidebar(props: SidebarProps) {
       <div className={style.container}>
         <SidebarHeader />
         <SidebarItems />
+
       </div>
     </aside>
   );
