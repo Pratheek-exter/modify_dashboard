@@ -1,12 +1,13 @@
-import React from 'react';
+import { NextPage } from 'next';
+import RiderRegForm from '@/components/form';
 
-
-const formPage = () => {
+const Home: NextPage = () => {
   return (
     <div>
-      rider form
+      <h1>Welcome to the Rider Registration Page</h1>
+      <RiderRegForm />
     </div>
   );
 };
 
-export default formPage;
+export default Home;

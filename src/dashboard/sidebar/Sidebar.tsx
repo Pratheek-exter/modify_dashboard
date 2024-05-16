@@ -9,8 +9,8 @@ type SidebarProps = {
 
 const style = {
   mobileOrientation: {
-    start: 'left-0',
-    end: 'right-0',
+    start: 'right-0',
+    end: 'left-0 ',
   },
   container: 'pb-32 lg:pb-6',
   close: 'hidden lg:block lg:w-64 lg:z-auto',
