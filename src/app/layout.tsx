@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 import { DashboardLayout } from '@/dashboard/Layout';
 
 export const metadata: Metadata = {
-  title: 'Salvia-kit Dashboard V3 App Router',
+  title: 'exter admin',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
