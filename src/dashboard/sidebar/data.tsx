@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   AppstoreOutlined,
   ContainerOutlined,
-  DesktopOutlined,
-  MailOutlined,
-  MenuFoldOutlined,
   UserAddOutlined,
   PieChartOutlined,
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
-import { Button, Menu } from 'antd';
+import { Menu } from 'antd';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -22,53 +18,60 @@ function getItem(
   children?: MenuItem[],
 ): MenuItem {
   return {
-      key,
-      icon,
-      children,
-      label,
+    key,
+    icon,
+    children,
+    label,
   } as MenuItem;
 }
 
-const handleAboutClick = () => {
-  const route = useRouter();
-};
-
 const items: MenuItem[] = [
-  getItem(<nav>
-    <Link onClick={handleAboutClick} href={'/'}>Dashboard</Link>
-</nav>, '1', <PieChartOutlined />),
+  getItem(
+    <nav>
+      <Link href={'/'}>Dashboard</Link>
+    </nav>, 
+    '1', 
+    <PieChartOutlined />
+  ),
 
-  getItem('BSS', 'sub1', <ContainerOutlined />, [
-      getItem(<nav>
-          <Link onClick={handleAboutClick} href={'/admin/BSS/rider'}>
+  getItem(
+    <nav>
+      <Link href={'/admin/BSS'}>BSS</Link>
+    </nav>,
+    'sub1', 
+    <ContainerOutlined />, 
+    [
+      getItem(
+        <nav>
+          <Link href={'/admin/BSS/rider'}>
             <UserAddOutlined /> Rider 
           </Link>
-        </nav>, '3')]), 
-    {
-      key: 'sub2',
-      label: 'Navigation Two',
-      icon: <AppstoreOutlined />,
-      children: [
-        { key: '9', label: 'Option 9' },
-        { key: '10', label: 'Option 10' },
-        {
-          key: 'sub3',
-          label: 'Submenu',
-          children: [
-            { key: '11', label: 'Option 11' },
-            { key: '12', label: 'Option 12' },
-          ],
-        },
-      ],
-    },
+        </nav>, 
+        '3'
+      )
+    ]
+  ), 
+  {
+    key: 'sub2',
+    label: 'Navigation Two',
+    icon: <AppstoreOutlined />,
+    children: [
+      { key: '9', label: 'Option 9' },
+      { key: '10', label: 'Option 10' },
+      {
+        key: 'sub3',
+        label: 'Submenu',
+        children: [
+          { key: '11', label: 'Option 11' },
+          { key: '12', label: 'Option 12' },
+        ],
+      },
+    ],
+  },
 ];
 
 const FormData: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
-
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
+  // Removed unused state and useRouter hook
 
   return (
     <div style={{ width: 256 }}>
@@ -77,7 +80,6 @@ const FormData: React.FC = () => {
         defaultOpenKeys={['sub1']}
         mode="inline"
         theme="light"
-        inlineCollapsed={collapsed}
         items={items}
       />
     </div>

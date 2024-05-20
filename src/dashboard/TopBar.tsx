@@ -50,13 +50,6 @@ export function TopBar() {
             </div>
           </div>
           <div className="relative ml-5 flex w-1/4 items-center justify-end p-1 sm:right-auto sm:mr-0">
-            <a href="#" className="relative block">
-              <img
-                alt="Jonathan Ilunga"
-                src="/images/9.jpg"
-                className="mx-auto h-10 w-10 rounded-full object-cover"
-              />
-            </a>
           </div>
         </div>
       </div>

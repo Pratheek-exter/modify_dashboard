@@ -1,5 +1,12 @@
-import { Content } from '@/components/Content';
+import BssTable from '@/components/table';
+import React from 'react';
 
-export default function ProjectsPage() {
-  return <Content title="BSS" />;
-}
+const Bsspage = () => {
+  return (
+    <div>
+      <BssTable />
+    </div>
+  );
+};
+
+export default Bsspage;

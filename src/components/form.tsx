@@ -1,6 +1,6 @@
-"use client"
+'use client';
 import React from 'react';
-import { Form, Input, Button, DatePicker, Select, Row, Col } from 'antd';
+import { Form, Input, Button, DatePicker, Select, Row, Col, message, Card } from 'antd';
 import moment from 'moment';
 
 const { Option } = Select;
@@ -17,6 +17,7 @@ const validateMessages = {
 
 const OnboardingForm: React.FC = () => {
   const onFinish = (values: any) => {
+    message.success('Form submitted successfully!');
     console.log('Success:', values);
   };
 
@@ -50,100 +51,100 @@ const OnboardingForm: React.FC = () => {
   };
 
   return (
-    <Form
-      name="onboarding"
-      onFinish={onFinish}
-      validateMessages={validateMessages}
-      layout="vertical"
-    >
-      <Row gutter={16}>
-        <Col span={12}>
-          <Form.Item
-            name="name"
-            label="Name"
-            rules={[{ required: true }, { validator: validateName }]}
-          >
-            <Input />
-          </Form.Item>
-        </Col>
-        <Col span={12}>
-          <Form.Item
-            name="mobile"
-            label="Mobile Number"
-            rules={[{ required: true }, { validator: validateMobile }]}
-          >
-            <Input />
-          </Form.Item>
-        </Col>
-      </Row>
+    <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
+      <Card title="Onboarding Form">
+        <Form
+          name="onboarding"
+          onFinish={onFinish}
+          validateMessages={validateMessages}
+          layout="vertical"
+        >
+          <Row gutter={16}>
+            <Col xs={24} sm={12}>
+              <Form.Item
+                name="name"
+                label="Name"
+                rules={[{ required: true }, { validator: validateName }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+            <Col xs={24} sm={12}>
+              <Form.Item
+                name="mobile"
+                label="Mobile Number"
+                rules={[{ required: true }, { validator: validateMobile }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+          </Row>
 
-      <Row gutter={16}>
-        <Col span={12}>
-          <Form.Item
-            name="dob"
-            label="Date of Birth"
-            rules={[{ required: true }, { validator: validateDOB }]}
-          >
-            <DatePicker style={{ width: '100%' }} />
-          </Form.Item>
-        </Col>
-        <Col span={12}>
-          <Form.Item
-            name="idProofType"
-            label="ID Proof Type"
-            rules={[{ required: true }]}
-          >
-            <Select>
-              <Option value="passport">Passport</Option>
-              <Option value="drivingLicense">Driving License</Option>
-              <Option value="aadhaar">Aadhaar</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-      </Row>
+          <Row gutter={16}>
+            <Col xs={24} sm={12}>
+              <Form.Item
+                name="dob"
+                label="Date of Birth"
+                rules={[{ required: true }, { validator: validateDOB }]}
+              >
+                <DatePicker style={{ width: '100%' }} />
+              </Form.Item>
+            </Col>
+            <Col xs={24} sm={12}>
+              <Form.Item name="idProofType" label="ID Proof Type" rules={[{ required: true }]}>
+                <Select>
+                  <Option value="passport">Passport</Option>
+                  <Option value="drivingLicense">Driving License</Option>
+                  <Option value="aadhaar">Aadhaar</Option>
+                </Select>
+              </Form.Item>
+            </Col>
+          </Row>
 
-      <Row gutter={16}>
-        <Col span={24}>
-          <Form.Item
-            name="address"
-            label="Address"
-            rules={[{ required: true }, { validator: validateAddress }]}
-          >
-            <Input />
-          </Form.Item>
-        </Col>
-      </Row>
+          <Row gutter={16}>
+            <Col xs={24}>
+              <Form.Item
+                name="address"
+                label="Address"
+                rules={[{ required: true }, { validator: validateAddress }]}
+              >
+                <Input />
+              </Form.Item>
+            </Col>
+          </Row>
 
-      <Row gutter={16}>
-        <Col span={24}>
-          <Form.Item
-            name="onboardedBy"
-            label="Onboarded By"
-            rules={[{ required: true }]}
-          >
-            <Select>
-              <Option value="employee1">Employee 1</Option>
-              <Option value="employee2">Employee 2</Option>
-              <Option value="employee3">Employee 3</Option>
-            </Select>
-          </Form.Item>
-        </Col>
-      </Row>
+          <Row gutter={16}>
+            <Col xs={24}>
+              <Form.Item name="onboardedBy" label="Onboarded By" rules={[{ required: true }]}>
+                <Select>
+                  <Option value="employee1">Employee 1</Option>
+                  <Option value="employee2">Employee 2</Option>
+                  <Option value="employee3">Employee 3</Option>
+                </Select>
+              </Form.Item>
+            </Col>
+          </Row>
 
-      <Row gutter={16}>
-        <Col span={24}>
-          <Form.Item>
-            <Button
-              type="primary"
-              htmlType="submit"
-              style={{ marginTop: '32px', color: 'blue' }}
-            >
-              Submit
-            </Button>
-          </Form.Item>
-        </Col>
-      </Row>
-    </Form>
+          <Row gutter={16}>
+            <Col xs={24}>
+              <Form.Item>
+                <Button
+                  htmlType="submit"
+                  style={{
+                    marginTop: '32px',
+                    width: '100%',
+                    backgroundColor: '#0077b6', // Set the desired shade of blue
+                    color: '#fff', // Set the text color to white for better contrast
+                  }}
+                >
+                  Submit
+                </Button>
+              </Form.Item>
+            </Col>
+          </Row>
+        </Form>
+      </Card>
+    </div>
   );
 };
 
