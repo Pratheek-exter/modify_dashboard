@@ -4,9 +4,9 @@ import React from 'react';
 
 const Content = () => {
   return (
-    <div>
+    <span>
       <DashboardCharts />
-    </div>
+    </span>
   );
 };
 

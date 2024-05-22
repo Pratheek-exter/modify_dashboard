@@ -1,7 +1,23 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { Row, Col, Card } from 'antd';
-import { PieChart, Pie, Tooltip, Cell, ComposedChart, Line, Area, Bar, XAxis, YAxis, CartesianGrid, Legend, AreaChart, BarChart, ResponsiveContainer } from 'recharts';
+import {
+  PieChart,
+  Pie,
+  Tooltip,
+  Cell,
+  ComposedChart,
+  Line,
+  Area,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Legend,
+  AreaChart,
+  BarChart,
+  ResponsiveContainer,
+} from 'recharts';
 
 const pieData = [
   { name: 'Group A', value: 400 },
@@ -41,7 +57,7 @@ const barData = [
   { name: 'July', uv: 3490, pv: 4300, amt: 2100 },
 ];
 
-const DashboardCharts = () => {
+const DashboardCharts: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -53,7 +69,7 @@ const DashboardCharts = () => {
   }
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px', height: '100vh', overflowY: 'auto' }}>
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={12} md={12} lg={12} xl={12}>
           <Card title="Pie Chart">
@@ -81,8 +97,8 @@ const DashboardCharts = () => {
           <Card title="Composed Chart">
             <ResponsiveContainer width="100%" height={400}>
               <ComposedChart data={composedData}>
-                <XAxis dataKey="name" />
-                <YAxis />
+                <XAxis dataKey="name" tick={{ fill: '#333' }} />
+                <YAxis tick={{ fill: '#333' }} />
                 <Tooltip />
                 <Legend />
                 <CartesianGrid stroke="#f5f5f5" />
@@ -109,8 +125,8 @@ const DashboardCharts = () => {
                     <stop offset="95%" stopColor="#82ca9d" stopOpacity={0} />
                   </linearGradient>
                 </defs>
-                <XAxis dataKey="name" />
-                <YAxis />
+                <XAxis dataKey="name" tick={{ fill: '#333' }} />
+                <YAxis tick={{ fill: '#333' }} />
                 <CartesianGrid strokeDasharray="3 3" />
                 <Tooltip />
                 <Area type="monotone" dataKey="uv" stroke="#8884d8" fillOpacity={1} fill="url(#colorUv)" />
@@ -124,8 +140,8 @@ const DashboardCharts = () => {
             <ResponsiveContainer width="100%" height={400}>
               <BarChart data={barData}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
+                <XAxis dataKey="name" tick={{ fill: '#333' }} />
+                <YAxis tick={{ fill: '#333' }} />
                 <Tooltip />
                 <Legend />
                 <Bar dataKey="pv" fill="#8884d8" />

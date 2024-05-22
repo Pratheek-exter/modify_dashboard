@@ -1,5 +1,5 @@
 import css from '../style.module.css';
-import  SidebarItems  from './SidebarItems';
+import SidebarItems from './SidebarItems';
 import { SidebarHeader } from './SidebarHeader';
 import { useDashboardContext } from '../Provider';
 
@@ -25,11 +25,11 @@ export function Sidebar(props: SidebarProps) {
       className={`${style.default} 
         ${style.mobileOrientation[props.mobileOrientation]} 
         ${isOpen ? style.open : style.close} ${css.scrollbar}`}
+      style={{ borderRadius: '16px' }} // Inline style for rounded corners
     >
       <div className={style.container}>
         <SidebarHeader />
         <SidebarItems />
-
       </div>
     </aside>
   );
