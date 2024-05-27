@@ -28,7 +28,7 @@ function getItem(
 const items: MenuItem[] = [
   getItem(
     <nav>
-      <Link href={'/'}>Dashboard</Link>
+      <Link href={'/admin'}>Dashboard</Link>
     </nav>, 
     '1', 
     <PieChartOutlined />
