@@ -28,7 +28,7 @@ function getItem(
 const items: MenuItem[] = [
   getItem(
     <nav>
-      <Link href={'/admin'}>Dashboard</Link>
+      <Link href={'/dashboard'}>Dashboard</Link>
     </nav>, 
     '1', 
     <PieChartOutlined />
@@ -36,14 +36,14 @@ const items: MenuItem[] = [
 
   getItem(
     <nav>
-      <Link href={'/admin/BSS'}>BSS</Link>
+      <Link href={'/dashboard/BSS'}>BSS</Link>
     </nav>,
     'sub1', 
     <ContainerOutlined />, 
     [
       getItem(
         <nav>
-          <Link href={'/admin/BSS/rider'}>
+          <Link href={'/dashboard/BSS/rider'}>
             <UserAddOutlined /> Rider 
           </Link>
         </nav>, 
